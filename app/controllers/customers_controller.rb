@@ -3,7 +3,9 @@ class CustomersController < ApplicationController
   # before_action :set_company, only: [:new, :create, :edit, :update]
 
   def index
-    @customers = Customer.page(params[:page])
+    # @customers = Customer.page(params[:page])
+    @q = Customer.includes(:post, :company).ransack(params[:q])
+    @customers = @q.result.page(params[:page])
   end
 
   def new
