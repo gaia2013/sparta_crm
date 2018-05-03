@@ -3,6 +3,9 @@ class Customer < ApplicationRecord
   validates :given_name, presence: true, length: { maximum: 20 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
+  belongs_to :company
+  validates :company_id, presence: true
+
 
   def full_name
     family_name + given_name #returnは省略可能
