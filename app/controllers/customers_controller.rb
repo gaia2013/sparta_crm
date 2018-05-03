@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   # before_save:
 
   def index
+    @customers = Customer.page(params[:page])
   end
 
   def new
