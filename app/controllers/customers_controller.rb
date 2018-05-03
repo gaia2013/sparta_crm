@@ -34,6 +34,9 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @customer.comments
+      #customer_controllerを参照
   end
 
   def destroy
