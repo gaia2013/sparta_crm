@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_user!
   before_action :customer_find, only: [:show, :edit, :update, :destroy]
   # before_action :set_company, only: [:new, :create, :edit, :update]
 
