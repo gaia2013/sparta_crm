@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :customer_find, only: [:show, :edit, :update, :destroy]
-  before_action :set_company, only: [:new, :create, :edit, :update]
+  # before_action :set_company, only: [:new, :create, :edit, :update]
 
   def index
     @customers = Customer.page(params[:page])
@@ -45,7 +45,8 @@ class CustomersController < ApplicationController
       :family_name,
       :given_name,
       :email,
-      :company_id
+      :company_id,
+      :post_id
     )
   end
 
@@ -53,9 +54,9 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
-  def set_company
-    @companies = Company.all
-  end
+  # def set_company
+  #   @companies = Company.all
+  # end
 
 
 
